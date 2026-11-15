@@ -1266,3 +1266,48 @@ p {
 .packages-section > .container > p.packages-note {
     margin: 40px auto 0;
 }
+
+/* Senior gallery – desktop collage */
+.seniors-about-grid {
+    grid-template-columns: 5fr 7fr;
+    align-items: center;
+}
+.seniors-about-text .section-title {
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+}
+.seniors-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 220px 220px 240px;
+    grid-template-areas:
+        "a b b"
+        "a c d"
+        "e e e";
+    gap: 12px;
+}
+.seniors-gallery img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.seniors-gallery .sg-a { grid-area: a; object-position: 50% 30%; }
+.seniors-gallery .sg-b { grid-area: b; object-position: 50% 30%; }
+.seniors-gallery .sg-c { grid-area: c; object-position: 50% 65%; }
+.seniors-gallery .sg-d { grid-area: d; object-position: 50% 35%; }
+.seniors-gallery .sg-e { grid-area: e; object-position: 50% 40%; }
+@media (max-width: 1024px) {
+    .seniors-about-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .seniors-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 240px 200px;
+        grid-template-areas:
+            "a b"
+            "c d"
+            "e e";
+    }
+    .seniors-gallery .sg-b { object-position: 25% 30%; }
+}
