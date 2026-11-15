@@ -1246,3 +1246,23 @@ p {
 @media (max-width: 768px) {
     .groups-grid { grid-template-columns: 1fr; }
 }
+
+/* 3-card package grid (Portraits page) */
+.packages-grid.packages-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 40px;
+}
+.section-intro.light { color: var(--text-muted-dark); }
+@media (max-width: 900px) {
+    .packages-grid.packages-grid-3 { grid-template-columns: 1fr; max-width: 440px; }
+}
+.packages-section > .container > p.packages-note {
+    margin: 40px auto 0;
+}
