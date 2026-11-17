@@ -117,6 +117,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="weddings.html">Weddings</a></li>
                 <li><a href="seniors.html">Portraits</a></li>
+                <li><a href="families-teams.html">Families &amp; Teams</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -124,9 +125,9 @@
     </nav>
 
     <!-- Hero: Weddings -->
-    <section class="hero" id="home">
+    <section class="hero touch-intro" id="home">
         <div class="hero-bg">
-            <img src="photo1.JPG" alt="Bride and groom in front of the Welcome to Downtown Las Vegas sign">
+            <img src="photo1.JPG" alt="Bride touching the groom's cheek in front of the Welcome to Downtown Las Vegas sign">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -138,7 +139,7 @@
     </section>
 
     <!-- Portraits -->
-    <section class="family-sessions">
+    <section class="family-sessions scroll-intro">
         <div class="hero-bg">
             <img loading="lazy" src="photo2.JPG" alt="Senior portrait with a guitar in Downtown Las Vegas">
         </div>
@@ -156,7 +157,7 @@
         <div class="container">
             <div class="about-home-grid">
                 <div class="about-home-photos reveal">
-                    <img loading="lazy" src="photo3.JPG" alt="Bride and groom portraits inside a Las Vegas wedding chapel">
+                    <img loading="lazy" src="about-chapel.jpg" alt="Bride and groom portraits inside a Las Vegas wedding chapel">
                     <img loading="lazy" src="photo5.JPG" alt="Newlyweds celebrating on Fremont Street at night">
                 </div>
                 <div class="about-home-text reveal">
@@ -173,11 +174,42 @@
     <!-- Testimonial -->
     <section class="testimonial">
         <div class="container">
-            <div class="testimonial-content reveal">
-                <div class="stars">★★★★★</div>
-                <blockquote>"I booked a photographer through the chapel, and Paul was our guy. I can't even begin to say enough about him. We had so much fun with him, and he kept showing us sneak peeks of the pictures and they blew us away. He is extremely talented and was able to capture our fun, flirty, sexy, Vegas dream photos."</blockquote>
-                <div class="testimonial-author">Amanda Zeilman</div>
-                <div class="testimonial-source">Little White Wedding Chapel · Google Review</div>
+            <div class="testimonial-carousel reveal" aria-roledescription="carousel" aria-label="Client reviews">
+                <button type="button" class="t-arrow t-prev" aria-label="Previous review">‹</button>
+                <div class="testimonial-track">
+                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"I booked a photographer through the chapel, and Paul was our guy. I can't even begin to say enough about him. We had so much fun with him, and he kept showing us sneak peeks of the pictures and they blew us away. He is extremely talented and was able to capture our fun, flirty, sexy, Vegas dream photos."</blockquote>
+                    <div class="testimonial-author">Amanda Zeilman</div>
+                    <div class="testimonial-source">Little White Wedding Chapel · Google Review</div>
+                </div>
+                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                    <div class="stars">♥</div>
+                    <blockquote>"Thank you so much, we loved working with you… your work is amazing."</blockquote>
+                    <div class="testimonial-author">Aimee</div>
+                    <div class="testimonial-source">Las Vegas Wedding · Instagram</div>
+                </div>
+                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                    <div class="stars">♥</div>
+                    <blockquote>"I second this. You were amazing."</blockquote>
+                    <div class="testimonial-author">Martijn</div>
+                    <div class="testimonial-source">Las Vegas Wedding · Instagram</div>
+                </div>
+                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                    <div class="stars">♥</div>
+                    <blockquote>"The video is absolutely amazing. Thank you so much."</blockquote>
+                    <div class="testimonial-author">Thrive Volley VBC</div>
+                    <div class="testimonial-source">Team Photo Day · Instagram</div>
+                </div>
+                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                    <div class="stars">♥</div>
+                    <blockquote>"Thank you so much! You done an AMAZING job!!!"</blockquote>
+                    <div class="testimonial-author">Happy Client</div>
+                    <div class="testimonial-source">PT Photos Client · Text Message</div>
+                </div>
+                </div>
+                <button type="button" class="t-arrow t-next" aria-label="Next review">›</button>
+                <div class="t-dots"><button type="button" class="t-dot active" aria-label="Show review 1"></button><button type="button" class="t-dot" aria-label="Show review 2"></button><button type="button" class="t-dot" aria-label="Show review 3"></button><button type="button" class="t-dot" aria-label="Show review 4"></button><button type="button" class="t-dot" aria-label="Show review 5"></button></div>
             </div>
         </div>
     </section>
@@ -244,6 +276,7 @@
                     <ul class="footer-links">
                         <li><a href="weddings.html">Weddings</a></li>
                         <li><a href="seniors.html">Portraits</a></li>
+                        <li><a href="families-teams.html">Families &amp; Teams</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -267,5 +300,25 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    (function(){
+      var sec=document.querySelector('.scroll-intro'); if(!sec) return;
+      if(!('IntersectionObserver' in window)){ sec.classList.add('in-view'); return; }
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ sec.classList.add('in-view'); io.disconnect(); } }); },{threshold:0.35});
+      io.observe(sec);
+    })();
+    </script>
+    <script>
+    (function(){
+      var c=document.querySelector('.testimonial-carousel'); if(!c) return;
+      var track=c.querySelector('.testimonial-track'), slides=track.children, dots=c.querySelectorAll('.t-dot');
+      function idx(){ return Math.round(track.scrollLeft/track.clientWidth); }
+      function go(i){ i=(i+slides.length)%slides.length; track.scrollTo({left:i*track.clientWidth,behavior:'smooth'}); }
+      c.querySelector('.t-prev').addEventListener('click',function(){ go(idx()-1); });
+      c.querySelector('.t-next').addEventListener('click',function(){ go(idx()+1); });
+      dots.forEach(function(d,i){ d.addEventListener('click',function(){ go(i); }); });
+      track.addEventListener('scroll',function(){ var i=idx(); dots.forEach(function(d,j){ d.classList.toggle('active',j===i); }); },{passive:true});
+    })();
+    </script>
 </body>
 </html>
